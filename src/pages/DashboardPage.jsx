@@ -10,13 +10,50 @@ const initialDevices = [
     status: "online",
     previewImage: "/frontdoor.jpg",
   },
-  { id: 2, name: "Garage Motion Sensor", location: "Garage", status: "online" },
-  { id: 3, name: "Backyard Sensor", location: "Back Patio", status: "online" },
+  {
+    id: 2,
+    name: "Garage Camera",
+    location: "Garage",
+    status: "online",
+    previewImage: "/garage.jpg",
+  },
+  {
+    id: 3,
+    name: "Backyard Camera",
+    location: "Back Patio",
+    status: "online",
+    previewImage: "/backyard.jpg",
+  },
   {
     id: 4,
     name: "Window Lock System",
     location: "Living Room",
     status: "offline",
+  },
+  {
+    id: 5,
+    name: "Basement Motion Sensor",
+    location: "Basement",
+    status: "online",
+  },
+  {
+    id: 6,
+    name: "Hallway Camera",
+    location: "Second Floor Hall",
+    status: "online",
+    previewImage: "/frontdoor.jpg",
+  },
+  {
+    id: 7,
+    name: "Driveway Sensor",
+    location: "Driveway",
+    status: "offline",
+  },
+  {
+    id: 8,
+    name: "Patio Beam Sensor",
+    location: "Patio",
+    status: "online",
   },
 ];
 
@@ -163,7 +200,10 @@ function DashboardPage() {
 
               <div className="device-list">
                 {visibleDevices.map((device) => (
-                  <article key={device.id} className="device-item">
+                  <article
+                    key={device.id}
+                    className={`device-item ${device.previewImage ? "has-preview" : ""}`}
+                  >
                     <div className="device-main">
                       {device.previewImage ? (
                         <div className="device-preview-wrap">

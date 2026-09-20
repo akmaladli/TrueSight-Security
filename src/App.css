@@ -613,24 +613,26 @@ button,
 
 .device-list {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   min-height: 520px;
 }
 
 .device-item {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  padding: 20px 22px;
-  border-radius: 20px;
+  align-items: stretch;
+  gap: 16px;
+  padding: 18px 18px 16px;
+  border-radius: 22px;
   background: linear-gradient(
     180deg,
     rgba(10, 17, 23, 0.94),
     rgba(6, 12, 17, 0.88)
   );
   border: 1px solid rgba(103, 232, 249, 0.12);
-  min-height: 122px;
+  min-height: 216px;
   transition:
     border-color 0.2s ease,
     transform 0.2s ease,
@@ -648,14 +650,24 @@ button,
 
 .device-main {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
+}
+
+.device-item.has-preview .device-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.device-item.has-preview .device-copy {
+  width: 100%;
 }
 
 .device-preview-wrap {
   position: relative;
-  width: 128px;
-  height: 82px;
+  width: 100%;
+  height: 120px;
   flex-shrink: 0;
 }
 
@@ -663,11 +675,11 @@ button,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1px solid rgba(103, 232, 249, 0.22);
   box-shadow:
-    0 12px 24px rgba(15, 23, 42, 0.35),
-    0 0 22px rgba(34, 211, 238, 0.12);
+    0 14px 28px rgba(15, 23, 42, 0.35),
+    0 0 24px rgba(34, 211, 238, 0.12);
 }
 
 .live-badge {
@@ -701,7 +713,13 @@ button,
 .device-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
+  margin-top: auto;
+}
+
+.device-item.has-preview .device-actions {
+  width: 100%;
 }
 
 .device-icon {
