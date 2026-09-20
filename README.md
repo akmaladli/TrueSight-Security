@@ -4,11 +4,6 @@ The TrueSight Security Dashboard is a high-tech security monitoring system desig
 
 It lets operators monitor live camera feeds, check sensor and lock statuses, toggle system alarm modes (armed/disarmed), and track real-time security alerts and threat levels through a single interface.
 
-## Live Demo
-
-- ctrl + click link
-- <a href="https://truesight-security.vercel.app/" target="_blank" rel="noopener noreferrer">Click <u>Here</u> for live demo.</a>
-
 ## System Preview
 
 ### Login Page
@@ -18,6 +13,11 @@ It lets operators monitor live camera feeds, check sensor and lock statuses, tog
 ### Dashboard
 
 ![Dashboard](./public/dashboardss.png)
+
+## Live Demo
+
+- ctrl + click link
+- <a href="https://truesight-security.vercel.app/" target="_blank" rel="noopener noreferrer">Click <u>Here</u> for live demo.</a>
 
 ## Features
 
