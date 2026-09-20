@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import logo from "../assets/logo.jpg";
+import { useAuth } from "../components/AuthContext";
 
 const initialDevices = [
   {
@@ -9,6 +8,7 @@ const initialDevices = [
     name: "Front Door Camera",
     location: "Main Entrance",
     status: "online",
+    previewImage: "/frontdoor.jpg",
   },
   { id: 2, name: "Garage Motion Sensor", location: "Garage", status: "online" },
   { id: 3, name: "Backyard Sensor", location: "Back Patio", status: "online" },
@@ -22,14 +22,24 @@ const initialDevices = [
 
 const navItems = ["Overview", "Cameras", "Devices", "Alerts"];
 
-const trendData = [42, 56, 50, 72, 68, 85, 94];
-
 function DashboardPage() {
   const [devices, setDevices] = useState(initialDevices);
   const [activeNav, setActiveNav] = useState("Overview");
   const [systemArmed, setSystemArmed] = useState(true);
   const { logout } = useAuth();
   const navigate = useNavigate();
+
+  const visibleDevices = useMemo(() => {
+    if (activeNav === "Cameras") {
+      return devices.filter((device) => device.previewImage);
+    }
+
+    if (activeNav === "Alerts") {
+      return devices.filter((device) => device.status === "offline");
+    }
+
+    return devices;
+  }, [activeNav, devices]);
 
   const onlineCount = devices.filter(
     (device) => device.status === "online",
@@ -38,6 +48,12 @@ function DashboardPage() {
   const alertCount = offlineCount > 0 ? offlineCount : 0;
   const threatLevel =
     offlineCount === 0 ? "Low" : offlineCount === 1 ? "Medium" : "High";
+  const threatLevelClass =
+    threatLevel === "Low"
+      ? "low"
+      : threatLevel === "Medium"
+        ? "medium"
+        : "high";
 
   const statusSummary = useMemo(() => {
     if (!systemArmed) {
@@ -75,20 +91,8 @@ function DashboardPage() {
   return (
     <main className="dashboard-page">
       <div className="dashboard-shell">
-        <aside className="sidebar">
-          <div className="sidebar-brand">
-            <img
-              src={logo}
-              alt="TrueSight Security logo"
-              className="sidebar-brand-logo"
-            />
-            <div>
-              <strong>TrueSight</strong>
-              <span>Security</span>
-            </div>
-          </div>
-
-          <nav className="sidebar-nav" aria-label="Sidebar navigation">
+        <section className="main-panel">
+          <nav className="top-nav" aria-label="Primary navigation">
             {navItems.map((item) => (
               <button
                 key={item}
@@ -101,15 +105,6 @@ function DashboardPage() {
               </button>
             ))}
           </nav>
-
-          <div className="sidebar-card">
-            <p>Threat level</p>
-            <strong>{threatLevel}</strong>
-            <span>{onlineCount} active zones monitored</span>
-          </div>
-        </aside>
-
-        <section className="main-panel">
           <header className="topbar">
             <div>
               <p className="topbar-kicker">Protection overview</p>
@@ -151,7 +146,9 @@ function DashboardPage() {
           <section className="content-grid">
             <div className="device-panel">
               <div className="panel-header">
-                <h3>Connected Devices</h3>
+                <h3>
+                  {activeNav === "Overview" ? "Connected Devices" : activeNav}
+                </h3>
                 <button
                   type="button"
                   className={`status-pill neutral inline-toggle ${systemArmed ? "armed" : "disarmed"}`}
@@ -164,12 +161,25 @@ function DashboardPage() {
               </div>
 
               <div className="device-list">
-                {devices.map((device) => (
+                {visibleDevices.map((device) => (
                   <article key={device.id} className="device-item">
                     <div className="device-main">
-                      <div className="device-icon" aria-hidden="true">
-                        {device.status === "online" ? "●" : "○"}
-                      </div>
+                      {device.previewImage ? (
+                        <div className="device-preview-wrap">
+                          <img
+                            src={device.previewImage}
+                            alt={`${device.name} live view`}
+                            className="device-preview"
+                          />
+                          {device.status === "online" ? (
+                            <span className="live-badge">Live</span>
+                          ) : null}
+                        </div>
+                      ) : (
+                        <div className="device-icon" aria-hidden="true">
+                          {device.status === "online" ? "●" : "○"}
+                        </div>
+                      )}
 
                       <div className="device-copy">
                         <h4>{device.name}</h4>
@@ -196,6 +206,20 @@ function DashboardPage() {
             </div>
 
             <div className="panel-stack">
+              <div
+                className={`panel-card threat-card threat-${threatLevelClass}`}
+              >
+                <div className="panel-header compact">
+                  <h3 className="threat-title">
+                    <span className="threat-glow-dot" aria-hidden="true" />
+                    Threat level
+                  </h3>
+                  <span className="mini-tag">Live</span>
+                </div>
+                <strong className="threat-card-value">{threatLevel}</strong>
+                <small>{onlineCount} active zones monitored</small>
+              </div>
+
               <div className="panel-card activity-panel">
                 <div className="panel-header compact">
                   <h3>Recent activity</h3>
@@ -225,23 +249,6 @@ function DashboardPage() {
                     </div>
                   </li>
                 </ul>
-              </div>
-
-              <div className="panel-card chart-panel">
-                <div className="panel-header compact">
-                  <h3>Protection trend</h3>
-                  <span className="mini-tag success">+12%</span>
-                </div>
-
-                <div className="chart-bars" aria-label="Protection trend chart">
-                  {trendData.map((value, index) => (
-                    <span
-                      key={`${value}-${index}`}
-                      className="chart-bar"
-                      style={{ height: `${value}%` }}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
           </section>

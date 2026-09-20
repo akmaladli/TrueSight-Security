@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../components/AuthContext";
 import logo from "../assets/logo.jpg";
 
 function LoginPage() {
@@ -27,7 +27,11 @@ function LoginPage() {
     <main className="auth-page">
       <section className="auth-card">
         <div className="brand-wrap brand-wrap-logo">
-          <img src={logo} alt="TrueSight Security logo" className="brand-logo" />
+          <img
+            src={logo}
+            alt="TrueSight Security logo"
+            className="brand-logo"
+          />
         </div>
 
         <div className="auth-status-row">
