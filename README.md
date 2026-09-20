@@ -4,7 +4,7 @@ A cyber-inspired security monitoring dashboard built with React and Vite. The in
 
 ## Live Demo
 
-- [https://truesight-security.vercel.app/](#)
+- [Click <u>Here</u> for live demo.](https://truesight-security.vercel.app/)
 
 ## Overview
 
@@ -14,11 +14,11 @@ TrueSight Security is a front-end security dashboard concept that simulates a mo
 
 ### Login Page
 
-![Login Page](../public/loginss.jpg)
+![Login Page](./public/loginss.png)
 
 ### Dashboard
 
-![Dashboard](../public/dashboardss.jpg)
+![Dashboard](./public/dashboardss.png)
 
 > Replace the placeholders above later with your actual screenshots for the login page and dashboard.
 
