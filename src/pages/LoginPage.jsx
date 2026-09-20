@@ -6,19 +6,21 @@ import logo from "../assets/logo.jpg";
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (username === "admin" && password === "admin") {
+    if (username.trim() === "admin" && password === "admin") {
+      setErrorMessage("");
       login();
       navigate("/dashboard");
       return;
     }
 
-    alert("Invalid username or password");
+    setErrorMessage("Invalid username or password. Try admin / admin.");
   };
 
   return (
@@ -33,30 +35,47 @@ function LoginPage() {
           <span>System online</span>
         </div>
 
-        <form className="login-form" onSubmit={handleSubmit}>
-          <div className="field-group">
+        <div className="login-header">
+          <p className="login-kicker">Secure access</p>
+          <h1>Welcome back</h1>
+        </div>
+
+        <form className="login-form" onSubmit={handleSubmit} noValidate>
+          <div className={`field-group ${errorMessage ? "has-error" : ""}`}>
             <label htmlFor="username">Username</label>
             <input
               id="username"
               type="text"
               value={username}
-              onChange={(event) => setUsername(event.target.value)}
+              onChange={(event) => {
+                setUsername(event.target.value);
+                if (errorMessage) setErrorMessage("");
+              }}
               placeholder="admin"
               required
             />
           </div>
 
-          <div className="field-group">
+          <div className={`field-group ${errorMessage ? "has-error" : ""}`}>
             <label htmlFor="password">Password</label>
             <input
               id="password"
               type="password"
               value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => {
+                setPassword(event.target.value);
+                if (errorMessage) setErrorMessage("");
+              }}
               placeholder="admin"
               required
             />
           </div>
+
+          {errorMessage ? (
+            <p className="form-error" aria-live="polite">
+              {errorMessage}
+            </p>
+          ) : null}
 
           <button type="submit" className="primary-button">
             Login
