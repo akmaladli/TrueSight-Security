@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import logo from "../assets/logo.jpg";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -23,12 +24,8 @@ function LoginPage() {
   return (
     <main className="auth-page">
       <section className="auth-card">
-        <div className="brand-wrap">
-          <div className="brand-badge">TS</div>
-          <div>
-            <p className="eyebrow">Smart Security Platform</p>
-            <h1>TrueSight Security</h1>
-          </div>
+        <div className="brand-wrap brand-wrap-logo">
+          <img src={logo} alt="TrueSight Security logo" className="brand-logo" />
         </div>
 
         <div className="auth-status-row">

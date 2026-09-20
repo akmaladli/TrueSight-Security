@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import logo from "../assets/logo.jpg";
 
 const devices = [
   {
@@ -32,11 +33,11 @@ function DashboardPage() {
       <div className="dashboard-shell">
         <header className="topbar">
           <div className="brand-wrap brand-wrap-dashboard">
-            <div className="brand-badge">TS</div>
-            <div>
-              <p className="eyebrow">Security Overview</p>
-              <h2>TrueSight Security</h2>
-            </div>
+            <img
+              src={logo}
+              alt="TrueSight Security logo"
+              className="brand-logo brand-logo-dashboard"
+            />
           </div>
 
           <div className="topbar-actions">
