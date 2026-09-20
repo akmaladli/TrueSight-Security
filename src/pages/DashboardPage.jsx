@@ -92,19 +92,6 @@ function DashboardPage() {
     <main className="dashboard-page">
       <div className="dashboard-shell">
         <section className="main-panel">
-          <nav className="top-nav" aria-label="Primary navigation">
-            {navItems.map((item) => (
-              <button
-                key={item}
-                type="button"
-                className={`nav-item ${activeNav === item ? "active" : ""}`}
-                onClick={() => setActiveNav(item)}
-                aria-pressed={activeNav === item}
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
           <header className="topbar">
             <div>
               <p className="topbar-kicker">Protection overview</p>
@@ -142,6 +129,20 @@ function DashboardPage() {
               </small>
             </article>
           </section>
+
+          <nav className="top-nav" aria-label="Primary navigation">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={`nav-item ${activeNav === item ? "active" : ""}`}
+                onClick={() => setActiveNav(item)}
+                aria-pressed={activeNav === item}
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
 
           <section className="content-grid">
             <div className="device-panel">
