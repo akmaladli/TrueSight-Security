@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+
+import { AuthContext } from "./auth-context";
 
 function RequireAuth({ children }) {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useContext(AuthContext);
 
   if (!isLoggedIn) {
     return <Navigate to="/login" replace />;

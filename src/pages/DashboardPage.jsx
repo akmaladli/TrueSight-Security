@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../components/AuthContext";
+import { AuthContext } from "../components/auth-context";
 
 const initialDevices = [
   {
@@ -26,7 +26,7 @@ function DashboardPage() {
   const [devices, setDevices] = useState(initialDevices);
   const [activeNav, setActiveNav] = useState("Overview");
   const [systemArmed, setSystemArmed] = useState(true);
-  const { logout } = useAuth();
+  const { setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const visibleDevices = useMemo(() => {
@@ -69,7 +69,7 @@ function DashboardPage() {
   }, [offlineCount, systemArmed]);
 
   const handleLogout = () => {
-    logout();
+    setIsLoggedIn(false);
     navigate("/login");
   };
 

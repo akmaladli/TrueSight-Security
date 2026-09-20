@@ -1,7 +1,7 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { useState } from "react";
+import { AuthContext } from "./auth-context";
 
 const AUTH_STORAGE_KEY = "truesight-auth";
-const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -11,42 +11,21 @@ export function AuthProvider({ children }) {
 
     return window.localStorage.getItem(AUTH_STORAGE_KEY) === "true";
   });
+  const [role, setRole] = useState(null);
 
-  const login = () => {
-    setIsLoggedIn(true);
+  const handleSetIsLoggedIn = (value) => {
+    setIsLoggedIn(value);
 
     if (typeof window !== "undefined") {
-      window.localStorage.setItem(AUTH_STORAGE_KEY, "true");
+      window.localStorage.setItem(AUTH_STORAGE_KEY, String(value));
     }
   };
 
-  const logout = () => {
-    setIsLoggedIn(false);
-
-    if (typeof window !== "undefined") {
-      window.localStorage.removeItem(AUTH_STORAGE_KEY);
-    }
-  };
-
-  const value = useMemo(
-    () => ({
-      isLoggedIn,
-      login,
-      logout,
-    }),
-    [isLoggedIn],
+  return (
+    <AuthContext.Provider
+      value={{ isLoggedIn, setIsLoggedIn: handleSetIsLoggedIn, role, setRole }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function useAuth() {
-  const context = useContext(AuthContext);
-
-  if (!context) {
-    throw new Error("useAuth must be used inside an AuthProvider");
-  }
-
-  return context;
 }

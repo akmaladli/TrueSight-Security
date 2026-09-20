@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../components/AuthContext";
+import { AuthContext } from "../components/auth-context";
 import logo from "../assets/logo.jpg";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const { login } = useAuth();
+  const { setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -15,7 +15,7 @@ function LoginPage() {
 
     if (username.trim() === "admin" && password === "admin") {
       setErrorMessage("");
-      login();
+      setIsLoggedIn(true);
       navigate("/dashboard");
       return;
     }

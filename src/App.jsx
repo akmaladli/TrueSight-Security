@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { AuthProvider, useAuth } from "./components/AuthContext";
+import { AuthContext } from "./components/auth-context";
+import { AuthProvider } from "./components/AuthContext";
 import RequireAuth from "./components/RequireAuth";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import "./App.css";
 
 function AppRoutes() {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useContext(AuthContext);
 
   return (
     <Routes>
