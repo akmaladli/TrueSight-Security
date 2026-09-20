@@ -484,6 +484,12 @@
   gap: 14px;
 }
 
+.device-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .device-icon {
   display: grid;
   place-items: center;
@@ -534,6 +540,16 @@
 .status-pill.neutral {
   background: rgba(59, 130, 246, 0.12);
   color: #bfdbfe;
+}
+
+.status-pill.armed {
+  background: rgba(34, 197, 94, 0.14);
+  color: #86efac;
+}
+
+.status-pill.disarmed {
+  background: rgba(148, 163, 184, 0.15);
+  color: #e2e8f0;
 }
 
 .panel-stack {
@@ -614,6 +630,27 @@
   background: rgba(148, 163, 184, 0.12);
   color: #e2e8f0;
   border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.device-toggle {
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  background: rgba(59, 130, 246, 0.12);
+  color: #dbeafe;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.device-toggle:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.inline-toggle {
+  border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 980px) {

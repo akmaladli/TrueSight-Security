@@ -60,3 +60,7 @@ h3 {
 #root {
   min-height: 100vh;
 }
+
+link[rel="icon"] {
+  border-radius: 50%;
+}
