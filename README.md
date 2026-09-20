@@ -16,11 +16,11 @@ TrueSight Security is a front-end security dashboard concept that simulates a mo
 
 ### Login Page
 
-![Login Page](./loginss.jpg)
+![Login Page](./public/loginss.jpg)
 
 ### Dashboard
 
-![Dashboard](./dashboardss.jpg)
+![Dashboard](./public/dashboardss.jpg)
 
 > Replace the placeholders above later with your actual screenshots for the login page and dashboard.
 
