@@ -1,16 +1,53 @@
-# React + Vite
+# TrueSight Security Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A cyber-inspired security monitoring dashboard built with React and Vite. The interface presents a protected monitoring environment with a login flow, live camera previews, device status panels, threat-level awareness, and a clean dashboard layout designed for a security operations style experience.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Add your deployed page link here:
 
-## React Compiler
+- [https://truesight-security.vercel.app/](#)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview
 
-## Expanding the ESLint configuration
+TrueSight Security is a front-end security dashboard concept that simulates a modern monitoring system for home or office protection. It includes a secure login screen, live camera cards, sensor and lock system status, threat monitoring, and an admin-style dashboard layout with strong cyber visuals.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Screenshots
+
+### Login Page
+
+![Login Page](./loginss.jpg)
+
+### Dashboard
+
+![Dashboard](./dashboardss.jpg)
+
+> Replace the placeholders above later with your actual screenshots for the login page and dashboard.
+
+## Features
+
+- Secure login experience with admin credentials
+- Protected dashboard routing using auth checks
+- Live-looking camera cards with preview images
+- Connected sensors and lock-system monitoring
+- Threat level indicator with dynamic status logic
+- Armed/disarmed system state control
+- Active alerts and recent activity panel
+- Cyber-inspired UI styling with security-monitor aesthetics
+- Responsive dashboard layout for desktop viewing
+
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- React Router
+- CSS / custom styling
+- Vitest
+- Testing Library
+- ESLint
+
+## Demo Credentials
+
+- Username: admin
+- Password: admin
