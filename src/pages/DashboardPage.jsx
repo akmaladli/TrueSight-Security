@@ -23,6 +23,7 @@ const initialDevices = [
     location: "Back Patio",
     status: "online",
     previewImage: "/backyard.jpg",
+    toggleLabel: "Backyard Sensor",
   },
   {
     id: 4,
@@ -38,16 +39,16 @@ const initialDevices = [
   },
   {
     id: 6,
-    name: "Hallway Camera",
-    location: "Second Floor Hall",
+    name: "Living Room Camera",
+    location: "Living Room",
     status: "online",
-    previewImage: "/frontdoor.jpg",
+    previewImage: "/livingroom.jpg",
   },
   {
     id: 7,
     name: "Driveway Sensor",
     location: "Driveway",
-    status: "offline",
+    status: "online",
   },
   {
     id: 8,
@@ -57,7 +58,7 @@ const initialDevices = [
   },
 ];
 
-const navItems = ["Overview", "Cameras", "Devices", "Alerts"];
+const navItems = ["Overview", "Cameras", "Sensors & Lock System", "Alerts"];
 
 function DashboardPage() {
   const [devices, setDevices] = useState(initialDevices);
@@ -75,6 +76,15 @@ function DashboardPage() {
       return devices.filter((device) => device.status === "offline");
     }
 
+    if (activeNav === "Sensors & Lock System") {
+      return devices.filter(
+        (device) =>
+          !device.previewImage ||
+          device.name.includes("Lock") ||
+          device.name.includes("Sensor"),
+      );
+    }
+
     return devices;
   }, [activeNav, devices]);
 
@@ -83,8 +93,14 @@ function DashboardPage() {
   ).length;
   const offlineCount = devices.length - onlineCount;
   const alertCount = offlineCount > 0 ? offlineCount : 0;
-  const threatLevel =
-    offlineCount === 0 ? "Low" : offlineCount === 1 ? "Medium" : "High";
+  const effectiveThreatLevel = !systemArmed
+    ? "High"
+    : offlineCount === 0
+      ? "Low"
+      : offlineCount === 1
+        ? "Medium"
+        : "High";
+  const threatLevel = effectiveThreatLevel;
   const threatLevelClass =
     threatLevel === "Low"
       ? "low"
@@ -236,7 +252,7 @@ function DashboardPage() {
                         type="button"
                         className="device-toggle"
                         onClick={() => handleToggleDevice(device.id)}
-                        aria-label={`Toggle ${device.name}`}
+                        aria-label={`Toggle ${device.toggleLabel || device.name}`}
                       >
                         {device.status === "online" ? "Disable" : "Enable"}
                       </button>
