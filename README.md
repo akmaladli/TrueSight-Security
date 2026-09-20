@@ -1,9 +1,12 @@
 # TrueSight Security Dashboard
 
-A cyber-inspired security monitoring dashboard built with React and Vite. The interface presents a protected monitoring environment with a login flow, live camera previews, device status panels, threat-level awareness, and a clean dashboard layout designed for a security operations style experience.
+The TrueSight Security Dashboard is a high-tech security monitoring system designed for home or office protection.
+
+It lets operators monitor live camera feeds, check sensor and lock statuses, toggle system alarm modes (armed/disarmed), and track real-time security alerts and threat levels through a single interface.
 
 ## Live Demo
 
+- ctrl + click link
 - <a href="https://truesight-security.vercel.app/" target="_blank" rel="noopener noreferrer">Click <u>Here</u> for live demo.</a>
 
 ## Overview
@@ -20,19 +23,15 @@ TrueSight Security is a front-end security dashboard concept that simulates a mo
 
 ![Dashboard](./public/dashboardss.png)
 
-> Replace the placeholders above later with your actual screenshots for the login page and dashboard.
-
 ## Features
 
 - Secure login experience with admin credentials
 - Protected dashboard routing using auth checks
 - Live-looking camera cards with preview images
 - Connected sensors and lock-system monitoring
-- Threat level indicator with dynamic status logic
+- Threat level indicator
 - Armed/disarmed system state control
 - Active alerts and recent activity panel
-- Cyber-inspired UI styling with security-monitor aesthetics
-- Responsive dashboard layout for desktop viewing
 
 ## Tech Stack
 
