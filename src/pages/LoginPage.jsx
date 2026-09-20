@@ -31,6 +31,11 @@ function LoginPage() {
           </div>
         </div>
 
+        <div className="auth-status-row">
+          <span className="signal-dot" />
+          <span>System online</span>
+        </div>
+
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="field-group">
             <label htmlFor="username">Username</label>
@@ -59,6 +64,8 @@ function LoginPage() {
           <button type="submit" className="primary-button">
             Login
           </button>
+
+          <p className="demo-note">Demo access: admin / admin</p>
         </form>
       </section>
     </main>
