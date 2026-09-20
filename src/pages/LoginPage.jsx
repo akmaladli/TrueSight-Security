@@ -41,7 +41,7 @@ function LoginPage() {
 
         <div className="login-header">
           <p className="login-kicker">Secure access</p>
-          <h1>Welcome back</h1>
+          <h1>Welcome back, Mr. Admin</h1>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit} noValidate>
