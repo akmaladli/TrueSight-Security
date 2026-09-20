@@ -4,7 +4,7 @@ A cyber-inspired security monitoring dashboard built with React and Vite. The in
 
 ## Live Demo
 
-- [Click <u>Here</u> for live demo.](https://truesight-security.vercel.app/)
+- <a href="https://truesight-security.vercel.app/" target="_blank" rel="noopener noreferrer">Click <u>Here</u> for live demo.</a>
 
 ## Overview
 
