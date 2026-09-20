@@ -9,11 +9,7 @@ It lets operators monitor live camera feeds, check sensor and lock statuses, tog
 - ctrl + click link
 - <a href="https://truesight-security.vercel.app/" target="_blank" rel="noopener noreferrer">Click <u>Here</u> for live demo.</a>
 
-## Overview
-
-TrueSight Security is a front-end security dashboard concept that simulates a modern monitoring system for home or office protection. It includes a secure login screen, live camera cards, sensor and lock system status, threat monitoring, and an admin-style dashboard layout with strong cyber visuals.
-
-## Screenshots
+## System Preview
 
 ### Login Page
 
@@ -39,7 +35,7 @@ TrueSight Security is a front-end security dashboard concept that simulates a mo
 - Vite
 - JavaScript
 - React Router
-- CSS / custom styling
+- CSS
 - Vitest
 - Testing Library
 - ESLint
