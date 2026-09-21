@@ -305,48 +305,6 @@ button,
   backdrop-filter: blur(10px);
 }
 
-.sidebar {
-  border-radius: 28px;
-  padding: 18px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  min-height: 240px;
-}
-
-.sidebar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-}
-
-.sidebar-brand-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.sidebar-brand strong,
-.sidebar-brand span {
-  display: block;
-  color: #ecfeff;
-  line-height: 1.2;
-}
-
-.sidebar-brand span {
-  color: #a5dfe8;
-  font-size: 0.8rem;
-}
-
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .top-nav {
   display: flex;
   gap: 12px;
@@ -386,72 +344,6 @@ button,
   );
   border-color: rgba(103, 232, 249, 0.34);
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.08);
-}
-
-.sidebar-card {
-  margin-top: auto;
-  padding: 18px 16px;
-  border-radius: 18px;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 18, 24, 0.96),
-    rgba(7, 13, 17, 0.96)
-  );
-  border: 1px solid rgba(103, 232, 249, 0.18);
-}
-
-.sidebar-card p,
-.sidebar-card span {
-  color: #a1d2e8;
-  font-size: 0.75rem;
-}
-
-.sidebar-card strong {
-  display: block;
-  margin: 8px 0 6px;
-  color: #67e8f9;
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.sidebar-card.threat-low strong {
-  color: #86efac;
-}
-
-.sidebar-card.threat-low strong::before {
-  background: #22c55e;
-  box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
-}
-
-.sidebar-card.threat-medium strong {
-  color: #facc15;
-}
-
-.sidebar-card.threat-medium strong::before {
-  background: #facc15;
-  box-shadow: 0 0 12px rgba(250, 204, 21, 0.9);
-}
-
-.sidebar-card.threat-high strong {
-  color: #f87171;
-}
-
-.sidebar-card.threat-high strong::before {
-  background: #ef4444;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.9);
-}
-
-.sidebar-card strong::before {
-  content: "";
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  margin-right: 10px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
-  animation: statusPulse 1.6s ease-in-out infinite;
-  vertical-align: middle;
 }
 
 .main-panel {

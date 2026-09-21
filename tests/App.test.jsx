@@ -1,6 +1,7 @@
+import "@testing-library/jest-dom/vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
-import App from "./App";
+import App from "../src/App";
 
 describe("TrueSight security app", () => {
   beforeEach(() => {
@@ -30,7 +31,7 @@ describe("TrueSight security app", () => {
     expect(screen.getByText(/2 devices offline/i)).toBeInTheDocument();
   });
 
-  it("updates the device view when the sidebar navigation is clicked", async () => {
+  it("updates the device view when the navigation is clicked", async () => {
     render(<App />);
 
     fireEvent.change(screen.getByLabelText(/username/i), {

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../components/auth-context";
+import { AuthContext } from "../components/AuthContext";
 import logo from "../assets/logo.jpg";
 
 function LoginPage() {
