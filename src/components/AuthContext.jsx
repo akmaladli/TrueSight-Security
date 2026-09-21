@@ -1,7 +1,5 @@
 import { createContext, useState } from "react";
 
-// React Refresh expects component modules to export components only.
-// This auth context is intentionally shared across the app and must remain here.
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null);
 
